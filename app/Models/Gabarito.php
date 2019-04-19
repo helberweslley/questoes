@@ -1,12 +1,12 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Instituicao extends Model
+class Gabarito extends Model
 {
     protected $fillable = [
-        'nome', 'sigla',
+        'gabarito',
     ];
 }
