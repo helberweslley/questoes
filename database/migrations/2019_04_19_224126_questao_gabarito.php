@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGabaritosTable extends Migration
+class QuestaoGabarito extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,8 @@ class CreateGabaritosTable extends Migration
      */
     public function up()
     {
-        Schema::create('gabarito', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->string('gabarito');
-            $table->timestamps();
+        Schema::table('questao', function (Blueprint $table) {
+            $table->unsignedBigInteger('gabarito');
         });
     }
 
@@ -27,6 +25,6 @@ class CreateGabaritosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('gabaritos');
+        //
     }
 }

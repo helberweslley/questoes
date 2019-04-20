@@ -8,8 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Instituicao extends Model
 {
+    protected $table = 'instituicao';
     protected $fillable = [
-        'nome', 'sigla','site_comissao_vestibular',
+        'nome', 'site', 'sigla','site_comissao_vestibular',
     ];
 
 

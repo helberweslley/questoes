@@ -10,10 +10,6 @@ class Alternativa extends Model
         'texto',
     ];
 
-    public function gabarito(){
-        return $this->hasOne(Gabarito::class);
-    }
-
     public function questao(){
         return $this->belongsTo(Questao::class);
     }

@@ -22,9 +22,6 @@ class Questao extends Model
     public function comentarios(){
         return $this->hasMany(Comentario::class);
     }
-    public function gabarito(){
-        return $this->hasOne(Gabarito::class);
-    }
 
     public function alternativas(){
         return $this->hasMany(Alternativa::class);

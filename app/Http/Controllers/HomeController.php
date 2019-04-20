@@ -25,4 +25,19 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    public function dashboard()
+    {
+        return view('dashboard');
+    }
+
+    public function pages()
+    {
+        return view('adminlte::page');
+    }
+
+    public function master()
+    {
+        return view('adminlte::master');
+    }
 }

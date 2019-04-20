@@ -1,5 +1,7 @@
 <?php
 
+use JeroenNoten\LaravelAdminLte\ServiceProvider;
+
 return [
 
     /*
@@ -166,6 +168,7 @@ return [
          * Package Service Providers...
          */
 
+
         /*
          * Application Service Providers...
          */
@@ -174,6 +177,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        JeroenNoten\LaravelAdminLte\ServiceProvider::class,
 
     ],
 
@@ -189,7 +194,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
