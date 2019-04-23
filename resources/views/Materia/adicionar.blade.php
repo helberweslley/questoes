@@ -24,9 +24,10 @@
                     <div class="box-body">
                         <div class="form-group">
                             <label>Select</label>
-                            <select class="form-control">
+                            <select name="disciplina" class="form-control">
+                                <option value="" selected>Selecione a disciplina</option>
                                 @foreach ($disciplinas->all() as $disciplina)
-                                    <option>{{$disciplina->id}} - {{$disciplina->disciplina}}</option>
+                                    <option value={{$disciplina->id}}>{{$disciplina->disciplina}}</option>
                                 @endforeach
                             </select>
                         </div>

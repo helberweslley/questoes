@@ -9,7 +9,7 @@ class Materia extends Model
 
     protected $table = 'materia';
     protected $fillable = [
-        'materia',
+        'materia','disciplina_id'
     ];
 
     public function questoes(){

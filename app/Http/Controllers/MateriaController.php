@@ -44,10 +44,12 @@ class MateriaController extends Controller
     {
         $request->validate([
             'materia' => 'required',
+            'disciplina' => 'required',
         ]);
 
         $materia = new Materia([
             'materia' => $request->get('materia'),
+            'disciplina_id' => $request->get('disciplina'),
         ]);
 
         $materia->save();

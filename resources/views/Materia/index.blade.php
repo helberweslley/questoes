@@ -54,7 +54,7 @@
                                 <tr>
                                     <td>{{$materia->id}}</td>
                                     <td>{{$materia->materia}}</td>
-                                    <td>{{$materia->disciplina_id}}</td>
+                                    <td>{{$materia->disciplina->disciplina}}</td>
                                 </tr>
                             @endforeach
 
