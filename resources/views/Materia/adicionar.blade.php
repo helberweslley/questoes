@@ -19,22 +19,20 @@
                     </div><br/>
                 @endif
                 <!-- form start -->
-                <form role="form" method="post" action="{{action('DisciplinaController@store')}}">
+                <form role="form" method="post" action="{{action('MateriaController@store')}}">
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
-                            <label>Select Disabled</label>
+                            <label>Select</label>
                             <select class="form-control">
-                                <option>option 1</option>
-                                <option>option 2</option>
-                                <option>option 3</option>
-                                <option>option 4</option>
-                                <option>option 5</option>
+                                @foreach ($disciplinas->all() as $disciplina)
+                                    <option>{{$disciplina->id}} - {{$disciplina->disciplina}}</option>
+                                @endforeach
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="instituicao">Nome da Matéria</label>
-                            <input type="text" class="form-control" name="disciplina" placeholder="Biologia">
+                            <input type="text" class="form-control" name="materia" placeholder="Biologia">
                         </div>
                     </div>
                     <!-- /.box-body -->

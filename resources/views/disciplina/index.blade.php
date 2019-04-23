@@ -35,9 +35,7 @@
                                     <i class="fa fa-fw fa-plus"> </i> Nova Disciplina
                                 </a>
                             </p>
-
                         </div>
-
                     </div>
                     <!-- /.box-header -->
 

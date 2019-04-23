@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Disciplina;
 use App\Models\Materia;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        return view('materia.adicionar');
+        $view['disciplinas'] = Disciplina::all();
+        return view('materia.adicionar', $view);
     }
 
     /**
