@@ -128,17 +128,49 @@ return [
             'icon' => 'user',
         ],
         [
-            'text' => 'Instituicao',
+            'text' => 'Instituição',
             'icon' => 'building',
             'submenu' => [
                 [
                     'text' => 'Listar',
                     'url'  => 'instituicao',
-                    'icon' => 'building'
+                    'icon' => 'list'
                 ],
                 [
                     'text' => 'Cadastrar',
                     'url'  => 'instituicao/create',
+                    'icon' => 'plus'
+                ]
+            ]
+        ],
+        [
+            'text' => 'Disciplina',
+            'icon' => 'book',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'disciplina',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'disciplina/create',
+                    'icon' => 'plus'
+                ]
+            ]
+        ],
+        [
+            'text' => 'Matéria',
+            'icon' => 'book',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'materia',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'materia/create',
                     'icon' => 'plus'
                 ]
             ]
