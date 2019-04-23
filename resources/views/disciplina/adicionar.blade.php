@@ -1,6 +1,17 @@
 @extends('adminlte::page')
 
 @section('content')
+    <section class="content-header">
+        <h1>
+            Disciplina
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Disciplina </a></li>
+            <li class="active">Cadastrar</li>
+        </ol>
+    </section>
+
+    <section class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <!-- general form elements -->
@@ -37,4 +48,5 @@
             <!-- /.box -->
         </div>
     </div>
+    </section>
 @endsection()

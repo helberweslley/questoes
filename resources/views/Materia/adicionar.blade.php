@@ -1,6 +1,17 @@
 @extends('adminlte::page')
 
 @section('content')
+    <section class="content-header">
+        <h1>
+            Matéria
+        </h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Matéria</a></li>
+            <li class="active">Cadastrar</li>
+        </ol>
+    </section>
+
+    <section class="content container-fluid">
     <div class="row">
         <div class="col-md-12">
             <!-- general form elements -->
@@ -23,7 +34,7 @@
                     @csrf
                     <div class="box-body">
                         <div class="form-group">
-                            <label>Select</label>
+                            <label>Disciplina</label>
                             <select name="disciplina" class="form-control">
                                 <option value="" selected>Selecione a disciplina</option>
                                 @foreach ($disciplinas->all() as $disciplina)
@@ -46,4 +57,5 @@
             <!-- /.box -->
         </div>
     </div>
+    </section>
 @endsection()

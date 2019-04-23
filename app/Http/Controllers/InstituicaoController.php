@@ -59,7 +59,7 @@ class InstituicaoController extends Controller
 
         $instituicao->save();
 
-        return redirect('/home')->with('success', 'Instituicao adicionada com sucesso');
+        return redirect('/instituicao')->with('success', 'Instituição adicionada com sucesso!');
     }
 
     /**

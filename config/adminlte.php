@@ -135,11 +135,6 @@ return [
                     'text' => 'Listar',
                     'url'  => 'instituicao',
                     'icon' => 'list'
-                ],
-                [
-                    'text' => 'Cadastrar',
-                    'url'  => 'instituicao/create',
-                    'icon' => 'plus'
                 ]
             ]
         ],

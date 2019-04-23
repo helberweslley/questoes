@@ -63,13 +63,12 @@
                                     <td><a target="_blank" href="{{$instituicao->site}}">{{$instituicao->site}}</a></td>
                                     <td><a target="_blank" href="{{$instituicao->site_comissao_vestibular}}">{{$instituicao->site_comissao_vestibular}}</a></td>
                                     <td>
-                                        {{--<a href="{{action('InstituicaoController@show', $instituicao->id)}}">--}}
-                                        {{--<span class="badge bg-blue">  <i class="fa fa-search"></i> </span>--}}
-                                        {{--</a>--}}
-
-                                        {{--<a href="{{action('InstituicaoController@edit', $instituicao->id)}}">--}}
-                                        {{--<span class="badge bg-yellow"><i class="fa fa-edit"></i></span>--}}
-                                        {{--</a>--}}
+                                        {{--<a href="{{action('InstituicaoController@show', $instituicao->id)}}">
+                                            <span class="badge bg-blue">  <i class="fa fa-search"></i> </span>
+                                        </a>--}}
+                                        <a href="{{action('InstituicaoController@edit', $instituicao->id)}}">
+                                            <span class="badge bg-yellow"><i class="fa fa-edit"></i></span>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
