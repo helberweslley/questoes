@@ -1,8 +1,27 @@
 @extends('adminlte::page')
 
+@section('app_css')
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+@endsection()
+
+@section('app_js')
+
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
+
+
+
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+@endsection()
+
 
 
 @section('content')
+
     <section class="content-header">
         <h1>
             Questão
@@ -58,13 +77,18 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="instituicao">Enunciado da Questão</label>
-                                <div id="editor" style="height: 275px;"></div>
+                                <label for="enunciado">Enunciado da Questão</label>
+                                <div id="enunciado" style="height: 275px;"></div>
                             </div>
 
                             <div class="form-group">
-                                <label for="instituicao">Alternativa</label>
-                                <div id="editor" style="height: 175px;"></div>
+
+                                <label for="alternativa">Alternativa(s)</label>
+                                <button id="addAlternativa" name="addAlternativa" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
+                                <div id="alternativas">
+
+
+                                </div>
                             </div>
 
                         </div>
@@ -78,8 +102,11 @@
             </div>
         </div>
     </section>
-    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+
     <script>
+
+        /*
         var toolbarOptions = [
             [{'font': []}],
             [{'align': []}],
@@ -96,15 +123,42 @@
             ['clean']                                         // remove formatting button
         ];
 
-        var quill = new Quill('#editor', {
+        var quill = new Quill('#alternativa', {
             modules: {
                 syntax: true,
                 toolbar: toolbarOptions
             },
             placeholder: 'Digite o enunciado da questão...',
             theme: 'snow'  // or 'bubble'
+        });*/
+
+        var quill = new Quill('#enunciado', {
+            modules: {
+                toolbar: [
+                    [{ header: [1, 2, false] }],
+                    ['bold', 'italic', 'underline'],
+                    ['image']
+                ]
+            },
+            placeholder: 'Digite o enunciado da questão',
+            theme: 'snow'  // or 'bubble'
+        });
+
+
+        $( function() {
+            $( "input" ).checkboxradio();
+        } );
+
+
+        $( "#addAlternativa" ).on("click",function() {
+            var newDiv =  $("<div />");
+            var textArea = $('<textarea style="padding-left:100px" />');
+            textArea.text(jsonList);
+            newDiv.append(textArea);
         });
     </script>
 @endsection()
+
+
 
 

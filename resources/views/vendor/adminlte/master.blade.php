@@ -30,6 +30,10 @@
 
     @yield('adminlte_css')
 
+    <!-- CSS e JS da aplicação - utilizado para colocar js e css de plugins específicos às telas-->
+    @yield('app_js')
+    @yield('app_css')
+
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -45,9 +49,6 @@
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/jquery/dist/jquery.slimscroll.min.js') }}"></script>
 <script src="{{ asset('vendor/adminlte/vendor/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-<link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-
-
 
 @if(config('adminlte.plugins.select2'))
     <!-- Select2 -->
