@@ -171,6 +171,22 @@ return [
             ]
         ],
         [
+            'text' => 'Questão',
+            'icon' => 'book',
+            'submenu' => [
+                [
+                    'text' => 'Listar',
+                    'url'  => 'questao',
+                    'icon' => 'list'
+                ],
+                [
+                    'text' => 'Cadastrar',
+                    'url'  => 'questao/create',
+                    'icon' => 'plus'
+                ]
+            ]
+        ],
+        [
             'text' => 'Change Password',
             'url'  => 'admin/settings',
             'icon' => 'lock',
