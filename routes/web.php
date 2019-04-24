@@ -24,3 +24,4 @@ Route::get('dashboard', 'HomeController@dashboard')->name('dashboard');
 Route::resource('instituicao', 'InstituicaoController');
 Route::resource('disciplina', 'DisciplinaController');
 Route::resource('materia', 'MateriaController');
+Route::resource('questao', 'QuestaoController');
