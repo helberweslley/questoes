@@ -33,23 +33,49 @@
                     <form role="form" method="post" action="{{action('InstituicaoController@store')}}">
                         @csrf
                         <div class="box-body">
+
+                            <div class="form-group">
+                                <label>Região</label>
+                                <select name="regiao" class="form-control">
+                                    <option value="" selected>Selecione a Região</option>
+                                    <option value="NORTE" selected>Norte</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <select name="estado" class="form-control">
+                                    <option value="" selected>Selecione o Estado</option>
+                                    <option value="AC" selected>Acre</option>
+                                    <option value="AP" selected>Amapá</option>
+                                    <option value="AM" selected>Amazonas</option>
+                                    <option value="PA" selected>Pará</option>
+                                    <option value="RR" selected>Roraima</option>
+                                    <option value="RO" selected>Rondônia</option>
+                                    <option value="TO" selected>Tocantins</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="sigla">Sigla</label>
+                                <input type="text" class="form-control" name="sigla" placeholder="UFRR">
+                            </div>
+
                             <div class="form-group">
                                 <label for="instituicao">Nome da Instituição</label>
                                 <input type="text" class="form-control" name="nome"
                                        placeholder="Universidade Federal de Roraima">
                             </div>
+
                             <div class="form-group">
                                 <label for="site">Site</label>
                                 <input type="text" class="form-control" name="site" placeholder="ufrr.br">
                             </div>
+
                             <div class="form-group">
                                 <label for="site_comissao_vestibular">Comissão do Vestibular</label>
                                 <input type="text" class="form-control" name="site_comissao_vestibular"
                                        placeholder="ufrr.br/cpv">
-                            </div>
-                            <div class="form-group">
-                                <label for="sigla">Sigla</label>
-                                <input type="text" class="form-control" name="sigla" placeholder="UFRR">
                             </div>
                         </div>
                         <!-- /.box-body -->

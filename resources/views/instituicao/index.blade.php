@@ -47,6 +47,8 @@
                             <tbody>
                             <tr>
                                 <th>#</th>
+                                <th>Região</th>
+                                <th>UF</th>
                                 <th>Sigla</th>
                                 <th>Instituição</th>
                                 <th>Site</th>
@@ -58,6 +60,8 @@
 
                                 <tr>
                                     <td>{{$instituicao->id}}</td>
+                                    <td>{{$instituicao->regiao}}</td>
+                                    <td>{{$instituicao->uf}}</td>
                                     <td>{{$instituicao->sigla}}</td>
                                     <td>{{$instituicao->nome}}</td>
                                     <td><a target="_blank" href="{{$instituicao->site}}">{{$instituicao->site}}</a></td>

@@ -22,7 +22,7 @@ class InstituicaoController extends Controller
     public function index()
     {
 
-        return view('instituicao.index',['instituicoes' => Instituicao::paginate(1)]);
+        return view('instituicao.index',['instituicoes' => Instituicao::paginate(10)]);
     }
 
     /**
@@ -47,6 +47,8 @@ class InstituicaoController extends Controller
             'nome' => 'required',
             'sigla' => 'required',
             'site' => 'required',
+            'regiao' => 'required',
+            'estado' => 'required',
             'site_comissao_vestibular' => 'required'
         ]);
 
@@ -54,6 +56,8 @@ class InstituicaoController extends Controller
             'nome' => $request->get('nome'),
             'site' => $request->get('site'),
             'sigla' => $request->get('sigla'),
+            'regiao' => $request->get('regiao'),
+            'estado' => $request->get('estado'),
             'site_comissao_vestibular' => $request->get('site_comissao_vestibular')
         ]);
 
