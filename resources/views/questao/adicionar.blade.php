@@ -2,19 +2,26 @@
 
 @section('app_css')
     <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+
+    <style>
+        .example-modal .modal {
+            position: relative;
+            top: auto;
+            bottom: auto;
+            right: auto;
+            left: auto;
+            display: block;
+            z-index: 1;
+        }
+
+        .example-modal .modal {
+            background: transparent !important;
+        }
+    </style>
 @endsection()
 
 @section('app_js')
-
-
-    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="/resources/demos/external/jquery-mousewheel/jquery.mousewheel.js"></script>
-
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 @endsection()
 
@@ -83,14 +90,59 @@
 
                             <div class="form-group">
 
-                                <label for="alternativa">Alternativa(s)</label>
-                                <button id="addAlternativa" name="addAlternativa" type="button" class="btn btn-success btn-sm"><i class="fa fa-plus"></i></button>
-                                <div id="alternativas">
-
-
-                                </div>
+                                    <button type="button" class="btn btn-success pull-left" data-toggle="modal"
+                                            data-target="#modal-default"><i class="fa fa-plus"></i>
+                                        Adicionar Alternativa
+                                    </button>
                             </div>
+                        </div>
 
+                        <!-- /.box-body -->
+                        <div class="box-body">
+                            <label for="alternativa">Alternativa(s)</label>
+                            <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
+                            <ul class="todo-list ui-sortable">
+                                <li class="" style="">
+                                    <input type="radio" value="">
+                                    <span class="text">a) 12.560 caixas</span>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li class="" style="">
+                                    <input type="radio" value="" checked>
+                                    <span class="text">b) 628 caixas</span>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li class="" style="">
+                                    <input type="radio" value="">
+                                    <span class="text">c) 1256 caixas</span>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li class="" style="">
+                                    <input type="radio" value="">
+                                    <span class="text">d) 125.600 caixas</span>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                                <li class="" style="">
+                                    <input type="radio" value="">
+                                    <span class="text">e) 6280 caixas</span>
+                                    <div class="tools">
+                                        <i class="fa fa-edit"></i>
+                                        <i class="fa fa-trash-o"></i>
+                                    </div>
+                                </li>
+                            </ul>
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -101,12 +153,46 @@
                 <!-- /.box -->
             </div>
         </div>
+
+        <!-- Modal: tela de cadastro de alternativas -->
+        <div class="modal fade" id="modal-default" style="display: none;">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close">
+                            <span aria-hidden="true">×</span></button>
+                        <h4 class="modal-title">Cadastro de Alternativa</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Alternativa</label>
+                            <textarea class="form-control" rows="5"
+                                      placeholder="Alternativa ..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox"> Essa alternativa é o gabarito da questão?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default pull-left"
+                                data-dismiss="modal">Fechar
+                        </button>
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+                <!-- /.modal-content -->
+            </div>
+            <!-- /.modal-dialog -->
+        </div>
     </section>
 
 
     <script>
-
-        /*
         var toolbarOptions = [
             [{'font': []}],
             [{'align': []}],
@@ -123,39 +209,14 @@
             ['clean']                                         // remove formatting button
         ];
 
-        var quill = new Quill('#alternativa', {
-            modules: {
-                syntax: true,
-                toolbar: toolbarOptions
-            },
-            placeholder: 'Digite o enunciado da questão...',
-            theme: 'snow'  // or 'bubble'
-        });*/
-
         var quill = new Quill('#enunciado', {
             modules: {
-                toolbar: [
-                    [{ header: [1, 2, false] }],
-                    ['bold', 'italic', 'underline'],
-                    ['image']
-                ]
+                toolbar: toolbarOptions
             },
-            placeholder: 'Digite o enunciado da questão',
+            placeholder: 'A prefeitura de Boa Vista realizará uma reforma nas praças do centro da cidade. Será reconstruída uma praça circular com raio de 40 m. A prefeitura comprou pisos quadrados de lado 20 cm. Sabendo que cada caixa contém 20 pisos, qual o número de caixas que a prefeitura deverá comprar para realizar a reforma? (adote π = 3,14).',
             theme: 'snow'  // or 'bubble'
         });
 
-
-        $( function() {
-            $( "input" ).checkboxradio();
-        } );
-
-
-        $( "#addAlternativa" ).on("click",function() {
-            var newDiv =  $("<div />");
-            var textArea = $('<textarea style="padding-left:100px" />');
-            textArea.text(jsonList);
-            newDiv.append(textArea);
-        });
     </script>
 @endsection()
 
