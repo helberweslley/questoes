@@ -92,11 +92,9 @@
                                 <label>Tipo de Questão</label>
                                 <select name="tipoQuestao" class="form-control" onchange="teste(this)">
                                     <option value="">Selecione</option>
-                                    <option value="1">4 alternativas</option>
-                                    <option value="2">5 alternativas</option>
-                                    <option value="3">Certo ou Errado</option>
-                                    <option value="4">Somatório</option>
-                                    <option value="5">Verdadeiro ou Falso</option>
+                                    @foreach ($questao_tipos->all() as $tipo)
+                                        <option value={{$tipo->id}}>{{$tipo->tipo}}</option>
+                                    @endforeach
                                 </select>
                             </div>
 

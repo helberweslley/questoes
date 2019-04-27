@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Instituicao;
 use App\Models\Materia;
 use App\Models\Questao;
+use App\QuestaoTipo;
 use Illuminate\Http\Request;
 
 class QuestaoController extends Controller
@@ -26,7 +27,7 @@ class QuestaoController extends Controller
      */
     public function create()
     {
-        return view('questao.adicionar',['instituicoes'=>Instituicao::all(),'materias'=>Materia::all()]);
+        return view('questao.adicionar',['instituicoes'=>Instituicao::all(),'materias'=>Materia::all(),'questao_tipos'=>QuestaoTipo::all()]);
     }
 
     /**
