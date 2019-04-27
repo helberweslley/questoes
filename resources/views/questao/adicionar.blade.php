@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label>Instituição</label>
                                 <select name="instituicao" class="form-control">
-                                    <option value="" selected>Selecione a Instituição</option>
+                                    <option value="" selected>Instituição</option>
                                     @foreach ($instituicoes->all() as $instituicao)
                                         <option value={{$instituicao->id}}>{{$instituicao->sigla}}
                                             - {{$instituicao->nome}}</option>
@@ -74,7 +74,7 @@
                             <div class="form-group">
                                 <label>Ano</label>
                                 <select name="ano" class="form-control">
-                                    <option value="" selected>Selecione o ano</option>
+                                    <option value="" selected>Ano da questão</option>
                                     <option value="2019">2019</option>
                                     <option value="2018">2018</option>
                                     <option value="2017">2017</option>
@@ -84,65 +84,59 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="enunciado">Enunciado da Questão</label>
-                                <div id="enunciado" style="height: 275px;"></div>
+                                <label for="">Enunciado da Questão</label>
+                                <div id="editor" style="height: 170px;"></div>
                             </div>
 
                             <div class="form-group">
-
-                                    <button type="button" class="btn btn-success pull-left" data-toggle="modal"
-                                            data-target="#modal-default"><i class="fa fa-plus"></i>
-                                        Adicionar Alternativa
-                                    </button>
+                                <label>Tipo de Questão</label>
+                                <select name="tipoQuestao" class="form-control" onchange="teste(this)">
+                                    <option value="">Selecione</option>
+                                    <option value="1">4 alternativas</option>
+                                    <option value="2">5 alternativas</option>
+                                    <option value="3">Certo ou Errado</option>
+                                    <option value="4">Somatório</option>
+                                    <option value="5">Verdadeiro ou Falso</option>
+                                </select>
                             </div>
-                        </div>
 
-                        <!-- /.box-body -->
-                        <div class="box-body">
-                            <label for="alternativa">Alternativa(s)</label>
-                            <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-                            <ul class="todo-list ui-sortable">
-                                <li class="" style="">
-                                    <input type="radio" value="">
-                                    <span class="text">a) 12.560 caixas</span>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li class="" style="">
-                                    <input type="radio" value="" checked>
-                                    <span class="text">b) 628 caixas</span>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li class="" style="">
-                                    <input type="radio" value="">
-                                    <span class="text">c) 1256 caixas</span>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li class="" style="">
-                                    <input type="radio" value="">
-                                    <span class="text">d) 125.600 caixas</span>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                                <li class="" style="">
-                                    <input type="radio" value="">
-                                    <span class="text">e) 6280 caixas</span>
-                                    <div class="tools">
-                                        <i class="fa fa-edit"></i>
-                                        <i class="fa fa-trash-o"></i>
-                                    </div>
-                                </li>
-                            </ul>
+                            <div class="form-group">
+                                <label>Matéria</label>
+                                <select class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Selecione a matéria" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                    <option value="">Selecione a matéria</option>
+                                    @foreach ($materias->all() as $materia)
+                                        <option value={{$materia->id}}>{{$materia->materia}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            {{--<script>
+                                function teste(select) {
+                                    if (select.name == "tipoQuestao") {
+                                        switch (select.value) {
+                                            case '1':
+                                                document.getElementById("dinamico").innerHTML = '';
+                                                break;
+                                            case '2':
+                                                window.open('popup.html', 'popup');
+                                                break;
+                                            case '3':
+                                                window.open('popup.html', 'popup');
+                                                break;
+                                            case '4':
+                                                window.open('popup.html', 'popup');
+                                                break;
+                                            default:
+                                        }
+                                    }
+                                }
+
+                                function pegaValor(radior) {
+                                    document.getElementById("dinamico").innerHTML = radior.value;
+                                }
+                            </script>
+
+                            <div id="dinamico"></div>--}}
+
                         </div>
                         <!-- /.box-body -->
                         <div class="box-footer">
@@ -153,7 +147,7 @@
                 <!-- /.box -->
             </div>
         </div>
-
+{{--
         <!-- Modal: tela de cadastro de alternativas -->
         <div class="modal fade" id="modal-default" style="display: none;">
             <div class="modal-dialog">
@@ -166,9 +160,10 @@
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <label>Alternativa</label>
-                            <textarea class="form-control" rows="5"
-                                      placeholder="Alternativa ..."></textarea>
+                            <div id="editor-container" style="height: 155px">
+                            </div>
+
+
                         </div>
                         <div class="form-group">
                             <div class="checkbox">
@@ -188,7 +183,7 @@
                 <!-- /.modal-content -->
             </div>
             <!-- /.modal-dialog -->
-        </div>
+        </div>--}}
     </section>
 
 
@@ -209,7 +204,7 @@
             ['clean']                                         // remove formatting button
         ];
 
-        var quill = new Quill('#enunciado', {
+        var quill = new Quill('#editor', {
             modules: {
                 toolbar: toolbarOptions
             },
@@ -217,7 +212,14 @@
             theme: 'snow'  // or 'bubble'
         });
 
+        $(function () {
+            //Initialize Select2 Elements
+            $('.select2').select2()
+        })
+
     </script>
+
+
 @endsection()
 
 
