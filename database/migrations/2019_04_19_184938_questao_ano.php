@@ -14,7 +14,7 @@ class QuestaoAno extends Migration
     public function up()
     {
         Schema::table('questao', function (Blueprint $table) {
-            $table->integer('ano');
+            $table->integer('ano')->nullable()->withDefault(null);
         });
     }
 

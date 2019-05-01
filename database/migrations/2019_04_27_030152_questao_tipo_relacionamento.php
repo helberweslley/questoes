@@ -14,7 +14,7 @@ class QuestaoTipoRelacionamento extends Migration
     public function up()
     {
         Schema::table('questao', function($table) {
-            $table->unsignedBigInteger('questao_tipo_id');
+            $table->unsignedBigInteger('questao_tipo_id')->nullable()->withDefault(null);
             $table->foreign('questao_tipo_id')->references('id')->on('questao_tipo')->onDelete('cascade');
         });
     }

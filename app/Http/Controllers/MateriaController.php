@@ -54,7 +54,7 @@ class MateriaController extends Controller
 
         $materia->save();
 
-        return redirect('/home')->with('success', 'Matéria adicionada com sucesso');
+        return redirect('/materia')->with('success', 'Matéria adicionada com sucesso');
     }
 
     /**

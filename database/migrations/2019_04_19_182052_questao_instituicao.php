@@ -15,7 +15,7 @@ class QuestaoInstituicao extends Migration
     {
         Schema::table('questao', function($table)
         {
-            $table->unsignedBigInteger('instituicao_id');
+            $table->unsignedBigInteger('instituicao_id')->nullable()->withDefault(null);
             $table->foreign('instituicao_id')->references('id')->on('instituicao');
         });
     }

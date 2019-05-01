@@ -51,7 +51,7 @@ class DisciplinaController extends Controller
 
         $disciplina->save();
 
-        return redirect('/home')->with('success', 'Disciplina adicionada com sucesso');
+        return redirect('/disciplina')->with('success', 'Disciplina adicionada com sucesso');
     }
 
     /**

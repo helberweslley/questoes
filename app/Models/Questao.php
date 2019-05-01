@@ -9,8 +9,11 @@ use Illuminate\Database\Eloquent\Model;
 class Questao extends Model
 {
     protected $table = 'questao';
+
+    //protected $attributes = ['instituicao_id' => NULL,'ano' => NULL,'gabarito' => NULL,'questao_tipo_id' => NULL];
+
     protected $fillable = [
-        'questao','ano',
+        'questao',
     ];
 
     public function tipo(){

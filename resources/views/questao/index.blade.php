@@ -56,7 +56,7 @@
                                 <tr>
                                     <td>{{$questao->id}}</td>
                                     <td>{{$questao->questao}}</td>
-                                    <td>{{$questao->instituicao->sigla}}</td>
+                                    <td></td>
                                     <td>{{$questao->ano}}</td>
                                 </tr>
                             @endforeach

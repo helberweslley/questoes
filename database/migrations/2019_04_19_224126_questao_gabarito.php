@@ -14,7 +14,7 @@ class QuestaoGabarito extends Migration
     public function up()
     {
         Schema::table('questao', function (Blueprint $table) {
-            $table->unsignedBigInteger('gabarito');
+            $table->unsignedBigInteger('gabarito')->nullable()->withDefault(null);
         });
     }
 

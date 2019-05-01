@@ -38,7 +38,25 @@ class QuestaoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            /* 'instituicao' => 'required',
+            'ano' => 'required',*/
+            'enunciado' => 'required',
+            'questao_tipo' => 'required',
+            /*'materia' => 'required'*/
+        ]);
+
+        $questao = new Questao([
+            'instituicao_id' => $request->get('instituicao'),
+            'ano' => $request->get('ano'),
+            'questao' => $request->get('enunciado'),
+            'questao_tipo_id' => $request->get('questao_tipo'),
+            'materia' => $request->get('materia')
+        ]);
+
+        $questao->save();
+
+        return redirect('/questao')->with('success', 'Questão adicionada com sucesso!');
     }
 
     /**
@@ -49,7 +67,8 @@ class QuestaoController extends Controller
      */
     public function show($id)
     {
-        //
+
+        return view('questao.show', ['questao' => Questao::find($id)]);
     }
 
     /**
